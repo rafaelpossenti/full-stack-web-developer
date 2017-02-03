@@ -9,7 +9,8 @@
 CREATE TABLE Players ( pid SERIAL PRIMARY KEY,
                        pname varchar(255) );
 
-CREATE TABLE Matches ( winner int REFERENCES Players(pid),
+CREATE TABLE Matches ( id serial PRIMARY KEY,
+                       winner int REFERENCES Players(pid),
                        loser int REFERENCES Players(pid) );
 
 
