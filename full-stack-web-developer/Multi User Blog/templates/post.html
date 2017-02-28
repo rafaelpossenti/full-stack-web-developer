@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class="post">
+		<div class="post-heading">
+			<div class="post-title">
+				{{p.subject}} 	 
+			</div>
+
+			<div class="post-date">
+				{{p.created.strftime("%b %d, %Y")}}
+			</div>
+		</div>
+   
+		<div class="post-content">
+			{{p.content | safe}}
+		</div>
+		<br>
+	
+		<div class="post-actions"> 	
+			<div>
+				{% if vote %}
+					<form method="post">
+						<input class="blog-button" type="submit" value="{{vote}}">
+					</form>
+				{% endif %}
+			</div>
+  
+			<div><a class="blog-button" href="/{{p.key().id()}}/edit">Edit</a></div>
+			<div><a class="blog-button" href="{{p.key().id()}}/comment">Comment</a></div>
+			<div><a class="blog-button" href="/{{p.key().id()}}/delete">Delete</a></div>
+		</div>
+		<br>
+	
+		{% for c in comments %}
+			<div class="comment">
+				<p>{{c.content}}</p>
+				<p>by {{c.author.name}}</p>
+				<a class="comment-button" href="/{{p.key().id()}}/comment/{{c.key().id()}}/edit">Edit</a>
+				<a class="comment-button" href="/{{p.key().id()}}/comment/{{c.key().id()}}/delete">Delete</a>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}

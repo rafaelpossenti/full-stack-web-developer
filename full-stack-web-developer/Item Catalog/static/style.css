@@ -1,0 +1,181 @@
+/*
+/ Stylesheet for Catalog Project
+*/
+
+/* General */
+nav,
+aside,
+hgroup,
+header,
+footer,
+figure,
+article,
+section,
+figcaption {
+  display: block;
+} /* HTML5 compatibility for older browsers  */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	font-size: 16px;
+	font-family: 'Open Sans', sans-serif;
+	letter-spacing: 1px;
+	text-align: justify;
+	color: #db9111;
+	padding: 40px 0 80px 0;
+}
+
+section {
+	margin-bottom: 50px;
+}
+
+h1,
+h2,
+h4,
+h6 {
+	color: #db9111;
+}
+
+h1 {
+	font-weight: bold;
+}
+
+h5 {
+	color: #db9111;
+	font-size: 20px;
+	padding: 2%;
+	background-color: #ede91a;
+}
+
+
+a {
+	color: #070707;
+	line-height: 60px;
+	padding: 2%;
+	background-color: #ede91a;
+}
+
+a:hover,
+a:focus {
+	color: #db9111;
+	text-decoration: none;
+}
+
+
+.page-header {
+	text-align: center;
+	background-color: #070707;
+	padding: 9px;
+}
+
+.page-header h1 {
+	text-transform: uppercase;
+}
+
+.navbar-inverse {
+	background-color: #ede91a;
+	border-color: #ede91a;
+}
+
+.navbar-inverse .navbar-brand,
+.navbar-inverse .navbar-nav>li>a {
+	color: #070707;
+	text-transform: uppercase;
+}
+
+.navbar-inverse .navbar-nav>.open>a,
+.navbar-inverse .navbar-nav>.open>a:hover,
+.navbar-inverse .navbar-nav>.open>a:focus,
+.btn-default {
+	color: #070707;
+	font-weight: bold;
+	background-color: #ede91a;
+}
+
+.navbar-brand {
+	font-weight: bold;
+}
+
+.dropdown-menu>li>a {
+	color: #db9111;
+}
+
+.btn-default:hover,
+.btn-default:active:hover,
+.btn-default.active:hover,
+.open>.dropdown-toggle.btn-default:hover,
+.btn-default:active:focus,
+.btn-default.active:focus,
+.open>.dropdown-toggle.btn-default:focus,
+.btn-default:active.focus,
+.btn-default.active.focus,
+.open>.dropdown-toggle.btn-default.focuss {
+	color: #db9111;
+	background-color: #ede91a;
+}
+
+.footer {
+	color: #db9111;
+	text-align: center;
+	width: 100%;
+	height: 80px;
+	bottom: 0;
+	padding-top: 10px;
+	position: absolute;
+	background-color: #ede91a;
+}
+
+
+/* Thumbnail */
+.thumbnail {
+	padding: 0;
+}
+
+.div-thumb {
+	position: relative;
+	width: 100%;
+	height: 300px;
+	overflow: hidden;
+	margin: 0 auto;
+}
+
+.img-thumb {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	height: 100%;
+	width: auto;
+	-webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+
+.img-link {
+	padding: 0;
+	background: none;
+}
+
+
+/* General Classes */
+.align-center {
+	text-align: center;
+}
+
+.about-txt {
+	padding: 2%;
+	background-color: #eee;
+}
+
+.hero-name {
+	text-transform: uppercase;
+}

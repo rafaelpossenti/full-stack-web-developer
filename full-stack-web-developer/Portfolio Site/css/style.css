@@ -1,0 +1,41 @@
+.container {
+    font-family: "Lato", sans-serif;
+    color: #2d3c49;
+    font-weight: 100;
+}
+
+
+.text-muted {
+    color: #7d97ad;
+}
+
+
+.text-thin {
+     font-weight: 100;
+ }
+
+
+.title-super {
+    font-size: 60px;
+}
+
+
+.title-logo {
+    margin-top: 40px;
+    max-width: 100px;
+    opacity:0.5;
+}
+
+
+.custom-h4 {
+    color: #0000CD;
+    font-size: 1.25em;
+    background: #00BFFF;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    overflow: hidden
+}
+

@@ -1,0 +1,26 @@
+<!-- Page Template: Delete item -->
+{% extends "layout.html" %}
+{% block headerpage %}
+<header class="page-header">
+	<h1>Delete your {{ item.name }}</h1>
+</header>
+{% endblock headerpage %}
+
+{% block content %}
+<main class="row">
+	<section class="col-sm-8 col-sm-offset-2">
+		<h2>Are you sure about it?</h2>
+		<!-- Check if item has a picture file or a link to picture -->
+		{% if item.picture_filename != none %}
+		<img src="{{url_for('show_image', filename=item.picture_filename)}}" alt="hero picture" class="img-responsive">
+		{% elif item.picture_url != none %}
+		<img src="{{item.picture_url}}" alt="hero picture" class="img-responsive">
+		{% endif %}
+		<br><br>
+		<form action="{{url_for('deleteItem', item_id=item.id)}}" method='post'>
+			<input type="submit" value="Bye Hero" class="btn btn-default">
+			<a href="{{url_for('showItem', item_id=item.id)}}" class="btn btn-default">Cancel</a>
+		</form>
+	</section>
+</main>
+{% endblock content %}

@@ -1,0 +1,39 @@
+<!-- Page Template: Show item -->
+{% extends "layout.html" %}
+{% block headerpage %}
+<header class="page-header">
+	<h1>Hello! I am {{ item.name }}!</h1>
+</header>
+{% endblock headerpage %}
+
+{% block content %}
+<main class="row">
+	<section class="col-sm-8">
+		<!-- Check if item has a picture file or a link to picture -->
+	    {% if item.picture_filename != none %}
+		<img src="{{url_for('show_image', filename=item.picture_filename)}}" alt="hero picture" class="img-responsive">
+		{% elif item.picture_url != none %}
+		<img src="{{item.picture_url}}" alt="hero picture" class="img-responsive">
+		{% endif %}
+		<br><br>
+		<h3 class="align-center">This is my power:
+		<a href="{{url_for('showCategory', category_id=item.category.id)}}"><span class="hero-name">{{ item.category.name }}</span></a></h3>
+		<br><br>
+		<p><strong>ABOUT ME:</strong> {{ item.description }}</p>
+	</section>
+
+	<section class="col-sm-2 col-sm-offset-2 align-center">
+		<img src="{{item.user.picture}}" alt="" class="img-responsive img-circle">
+		<h4><strong>My creator is:</strong></h4>
+		<h5>{{ item.user.name }}</h5>
+		<br><br>
+		<p><a href="{{url_for('showList', user_id=item.user.id)}}" class="btn btn-default" role="button">MORE HEROES</a></p>
+
+		{% if author %} <!-- Only show this is for the item owner-->
+		<p><a href="{{url_for('editItem', item_id=item.id)}}" class="btn btn-default" role="button">Edit this hero</a></p>
+		<p><a href="{{url_for('deleteItem', item_id=item.id)}}" class="btn btn-default" role="button">Delete this hero</a></p>
+		<p><a href="{{url_for('addItem', user_id=item.user.id)}}" class="btn btn-default" role="button">Add a new hero</a></p>
+		{% endif %}
+	</section>
+</main>
+{% endblock content %}

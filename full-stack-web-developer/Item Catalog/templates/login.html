@@ -1,0 +1,112 @@
+<!-- Page Template: Login -->
+{% extends "layout.html" %}
+{% block headerpage %}
+<header class="page-header">
+	<h1>Log in to Hero's list</h1>
+	<p>You need a Google Plus or Facebook account in order to sign up.</p>
+</header>
+{% endblock headerpage %}
+
+{% block content %}
+<main class="row align-center">
+	<div class="col-xs-6">
+		<h4>Use Google+</h4>
+		<!-- Google+ login button authenticate -->
+		<div class="gplusSignin">
+			<span class="g-signin"
+				data-scope = "openid email"
+				data-clientid = "197305660596-u87hfrt14p5d2q5ojnods6nbu9vd0ic3.apps.googleusercontent.com"
+				data-redirecturi = "postmessage"
+				data-accesstype = "offline"
+				data-cookiepolicy = "single_host_origin"
+				data-callback = "signInCallback"
+				data-approvalprompt = "force">
+			</span>
+		</div>
+	</div>
+
+	<div class="col-xs-6">
+		<h4>Use Facebook</h4>
+		<!-- Facebook login button authenticate-->
+		<fb:login-button size="large" scope="public_profile,email" onlogin="sendTokenToServer();" style="height: 40px;">
+			<a href='javascript:sendTokenToServer()'>Facebook</a>
+		</fb:login-button>
+	</div>
+
+	<div class="col-xs-12 align-center" id="result"></div>
+</main>
+
+<!-- Google+ login callback method -->
+<script>
+	function signInCallback(authResult){
+		if (authResult['code']) {
+			$('#signinButton').attr('style', 'display:none');
+			$.ajax({
+				type: 'POST',
+				url: '/gconnect?state={{STATE}}',
+				processData: false,
+				data: authResult['code'],
+				contentType: 'application/octet-stream; charset=utf-8',
+				success: function(result) {
+					if (result) {
+						$('#result').html('Login Successful!<br>' + result + '<br>Redirecting...')
+						setTimeout(function() {
+							window.location.href = "/herocreator/mylist/";
+						}, 4000);
+					} else if (authResult['error']) {
+						console.log('There was an error: ' + authResult['error']);
+					} else {
+						$('#result').html('Failed to make a server-side call. Check your configuration and console.');
+					}
+				}
+			});
+		}
+	}
+</script>
+
+<!-- Facebook login script -->
+<script>
+	window.fbAsyncInit = function() {
+		FB.init({
+			appId	: '249606595467869',
+			cookie  : true,
+			xfbml   : true,
+			version : 'v2.2'
+		});
+	};
+
+	(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) {return;}
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_US/sdk.js";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+
+	function sendTokenToServer() {
+		var access_token = FB.getAuthResponse()['accessToken'];
+		console.log(access_token)
+		console.log('Welcome! Fetching your access token...');
+		FB.api('/me', function(response) {
+			console.log('Successful login for: ' + response.name);
+			$.ajax({
+				type: 'POST',
+				url: '/fbconnect?state={{STATE}}',
+				processData: false,
+				data: access_token,
+				contentType: 'application/octet-stream; charset=utf-8',
+				success: function(result) {
+					if (result) {
+						$('#result').html('Login Successful!<br>' + result + '<br>Redirecting...')
+						setTimeout(function() {
+							window.location.href = "/herocreator/mylist/";
+						}, 4000);
+					} else {
+						$('#result').html('Failed to make a server-side call.');
+					}
+				}
+			});
+		});
+	}
+</script>
+{% endblock content %}

@@ -1,0 +1,23 @@
+<!-- Page Template: Delete list -->
+{% extends "layout.html" %}
+{% block headerpage %}
+<header class="page-header">
+	<h1>Delete your list!</h1>
+</header>
+{% endblock headerpage %}
+
+{% block content %}
+<main class="row">
+	<section class="col-sm-8 col-sm-offset-2">
+		<h2>Deleting your list will also delete your account.<br>
+		    You will no longer be a Hero Creator.<br>
+		    <br>
+		    Are you sure about it?</h2>
+
+		<form action="{{url_for('deleteList', user_id=user.id)}}" method='post'>
+			<input type="submit" value="I'm out!" class="btn btn-default">
+			<a href="{{url_for('showList', user_id=user.id)}}" class="btn btn-default">Cancel</a>
+		</form>
+	</section>
+</main>
+{% endblock content %}
