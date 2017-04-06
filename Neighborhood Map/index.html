@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Neighborhood Park!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Martel" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="info">
+       powered by Foursquare
+    </div>
+    <!--For Map-->
+    <div id="map">
+    </div>
+    <!--Box for search and seeing search results-->
+    <div class="options-box">
+        <!--Search Box-->
+        <header>
+            <h1>Park's in Curitiba</h1>
+            <form class="form-inline" id="form-search" data-bind="submit: search">
+                <input type="text" class="form-control" data-bind="value: query" id="query-input" placeholder="Search"
+                       autofocus>
+                <button type="submit" id="submit-button" class="btn btn-outline-success">Search</button>
+            </form>
+            <!--Number of results from the search filter-->
+           <!-- <p id="query-summary" data-bind="text: queryResult"> -->
+            </p>
+        </header>
+        <!--List of search Results-->
+        <aside>
+            <ul class="list-group" data-bind="foreach: {data: FilteredparkList, as: 'park'}" id="list">
+                <li data-bind="click: $root.selectpark" class="list-group-item">
+                    <span data-bind="text: park.name"></span>
+                </li>
+            </ul>
+        </aside>
+
+
+    </div>
+
+</div>
+
+ <!--Loading Scripts-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script src="lib/knockout-3.2.0.min.js"></script>
+<script src="js/app.js"></script>
+<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBx6mN4W8oxJhdayGGbN2NgXcJsQgq5Maw&v=3&callback=initMap" onerror="googleError()">
+</script>
+</body>
+</html>
