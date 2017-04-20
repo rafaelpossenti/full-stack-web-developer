@@ -1,6 +1,5 @@
 # Linux Server Configuration
 
-project for Udacity Full Stack Nanodegree
 
 ## My current values of LightSail instance
 Public IP: 54.172.139.223
@@ -172,9 +171,9 @@ $ sudo apt-get install git
 
 ### Deploy the Item Catalog project.
 
-13. Clone and setup your Item Catalog project from the Github repository you created earlier in this Nanodegree program.
+13. Clone and setup your Item Catalog project from the Github repository.
 ```
-$ git clone https://github.com/flaviohenriquecbc/item-catalog-vagrant-virtualbox-sqlite.git
+$ git clone https://github.com/rafaelpossenti/full-stack-web-developer.git (folder Item Catalog)
 ```
 
 Open project.py and database_setup.py and replace the the create_engine for:
