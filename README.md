@@ -8,6 +8,9 @@ Full Stack Web Developer
 #### Item Catalog
 Developed a content management system using the Flask framework in Python. Authentication is provided via OAuth and all data is stored within a PostgreSQL database.
 
+#### Neighborhood Map
+Created a single-page web application, built using the Knockout framework, that displays a Google Map of an area and various points of interest. Users can search all included landmarks and, when selected, additional information about a landmark is presented from the FourSquare and Wikipedia APIs.
+
 #### Linux Server Configuration
 Installed and configured all required software to turn a baseline Ubuntu Amazon Web Services server into a fully functional web application server, including Apache Web Server and PostgreSQL database server.
 
@@ -16,9 +19,6 @@ Developed a server-side code written in Python to store a list of my favorite mo
 
 #### Multi User Blog
 Created a multi-user blog, hosted on Google App Engine, with comments and login functionality.
-
-#### Neighborhood Map
-Created a single-page web application, built using the Knockout framework, that displays a Google Map of an area and various points of interest. Users can search all included landmarks and, when selected, additional information about a landmark is presented from the FourSquare and Wikipedia APIs.
 
 #### Portfolio Site
 Developed a personal portfolio page using HTML, CSS, and the Bootstrap framework. The page is fully responsive and works on mobile, tablet, and desktop browsers.
